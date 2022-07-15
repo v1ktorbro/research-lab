@@ -5,7 +5,7 @@ import SignIn from '../SignIn/SignIn';
 function Main() {
   return (
     <main className='main'>
-      <p>main here</p>
+      <p>Welcome to the ...</p>
       <SignIn />
     </main>
   );
