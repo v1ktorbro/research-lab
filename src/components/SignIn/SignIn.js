@@ -1,3 +1,5 @@
+import { toggleAuthState } from '../../store/authReducer';
+import { useDispatch } from 'react-redux';
 import * as React from 'react';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -11,21 +13,23 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      main: '#414549',
-    },
-    custom: {
-      main: '#0298A9',
-    }
-  },
-});
-
 export default function SignIn() {
+  const dispatch = useDispatch();
+  const theme = createTheme({
+    palette: {
+      primary: {
+        main: '#414549',
+      },
+      custom: {
+        main: '#0298A9',
+      }
+    },
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
+    dispatch(toggleAuthState());
     console.log({
       email: data.get('email'),
       password: data.get('password'),
