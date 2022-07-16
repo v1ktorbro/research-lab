@@ -34,7 +34,7 @@ export default function SignIn() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Container component="main" sx={{textAlign: 'start'}} maxWidth="xs">
+      <Container component="main" sx={{textAlign: 'start', marginLeft: '0px'}} maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
