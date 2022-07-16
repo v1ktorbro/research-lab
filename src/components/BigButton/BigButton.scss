@@ -1,5 +1,5 @@
 $textColor: #fff;
-.bit-button {
+.big-button {
   cursor: pointer;
   width: 250px;
   height: 250px;
@@ -22,8 +22,33 @@ $textColor: #fff;
       box-shadow: none;
     }
   }
+  &_projects {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-top: 191px;
+    margin-left: 120px;
+  }
+  &_user {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    grid-row-start: -1;
+    grid-row-end: -2;
+    margin-top: -235px;
+    margin-left: -60px;
+    
+  }
+  &_market {
+    grid-column-start: -1;
+    grid-column-end: -2;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    margin-left: -180px;
+    margin-top: 70px;
+  }
 }
-.bit-button-text {
+.big-button-text {
   display: flex;
   align-items: center;
   justify-content: center;
