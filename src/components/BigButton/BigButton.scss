@@ -1,0 +1,31 @@
+$textColor: #fff;
+.bit-button {
+  cursor: pointer;
+  width: 250px;
+  height: 250px;
+  transform: rotate(45deg);
+  border-radius: 20px;
+  border: none;
+  outline: none;
+  color: $textColor;
+  font-size: 24px;
+  line-height: 18px;
+  font-weight: 700;
+  letter-spacing: 0.15px;
+  &:hover {
+    box-shadow: 8px 8px 8px 0px rgba(0,0,0,.6);
+  }
+  &:disabled {
+    opacity: .4;
+    cursor: default;
+    &:hover {
+      box-shadow: none;
+    }
+  }
+}
+.bit-button-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+}
