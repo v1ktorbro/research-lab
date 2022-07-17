@@ -1,12 +1,13 @@
 $mainImageBackground: url('../../images/background_main.jpg');
 
 .app {
+  max-width: 1440px;
   display: flex;
-  width: 100%;
   background-image: linear-gradient(rgba(231, 226, 222, 0.5), rgba(231, 226, 222, 0.5)), $mainImageBackground;
   background-position: top;
   background-repeat: repeat, no-repeat;
   background-size: auto, cover;
+  margin: auto;
 }
 
 .app__sign-in-block {
