@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 export default function SignIn() {
+  const [isRememberUser, setIsRememberUser] = React.useState(false);
   const dispatch = useDispatch();
   const theme = createTheme({
     palette: {
@@ -26,14 +27,15 @@ export default function SignIn() {
     },
   });
 
+  const handleCheckboxRememberValue = (evt) => setIsRememberUser(evt.target.checked);
+
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    dispatch(toggleAuthState());
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+    const  password = data.get('password');
+    const  email = data.get('email');
+    if (email.length && password.length) dispatch(toggleAuthState({email: email, isRemember: isRememberUser}));
+    else alert('Необходимо заполнить все поля');
   };
 
   return (
@@ -90,7 +92,7 @@ export default function SignIn() {
                 Sign In
               </Button>
               <FormControlLabel
-                control={<Checkbox value="remember" color="custom" />}
+                control={<Checkbox onChange={handleCheckboxRememberValue} value="remember" color="custom" />}
                 label="Remember me"
               />
             </Grid>
