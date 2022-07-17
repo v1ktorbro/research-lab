@@ -4,7 +4,7 @@ import { Route, Routes, useNavigate, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import BtnsContainer from '../BtnsContainer/BtnsContainer';
 import SignIn from '../SignIn/SignIn';
-import { toggleAuthState } from '../../store/authReducer';
+import { setLoginDataUser } from '../../store/authReducer';
 
 function App() {
   const navigate = useNavigate();
@@ -12,10 +12,10 @@ function App() {
   const authState = useSelector((state) => state.auth.isAuth);
 
   React.useEffect(() => {
-    const stateRememberUserLastVisit = localStorage.getItem('stateRememberUser');
-    if (stateRememberUserLastVisit) {
+    const stateRememberUserLastVisit = JSON.parse(localStorage.getItem('loginDataUser'));
+    if (stateRememberUserLastVisit !== null && stateRememberUserLastVisit.isAuth === true) {
       navigate('/my-profile/');
-      dispatch(toggleAuthState({isAuth: stateRememberUserLastVisit, email: 're@ya.ru'}));
+      dispatch(setLoginDataUser({isAuth: stateRememberUserLastVisit.isAuth, email: stateRememberUserLastVisit.email}));
     }
   }, []);
 
@@ -24,7 +24,7 @@ function App() {
     <main className='app'>
       <BtnsContainer />
       <Routes>
-        <Route exact path='/' element={
+        <Route path='/' element={
           authState ? (<Navigate to="/my-profile/" />) : (<Navigate to="/sign-in/" />)
         } />
 
@@ -37,7 +37,7 @@ function App() {
           </>
         }/>
 
-        <Route path='/my-profile/' element={
+        <Route exact path='/my-profile/' element={
           <>
           <h1>Ну типо работает?</h1>
           </>
