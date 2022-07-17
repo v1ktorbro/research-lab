@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import BtnsContainer from '../BtnsContainer/BtnsContainer';
 import SignIn from '../SignIn/SignIn';
 import { setLoginDataUser } from '../../store/authReducer';
+import PageOfUser from '../PageOfUser/PageOfUser';
 
 function App() {
   const navigate = useNavigate();
@@ -24,24 +25,11 @@ function App() {
     <main className='app'>
       <BtnsContainer />
       <Routes>
-        <Route path='/' element={
-          authState ? (<Navigate to="/my-profile/" />) : (<Navigate to="/sign-in/" />)
+        <Route path='/' element={ authState ? 
+            (<Navigate to="/my-profile/" />) : (<Navigate to="/sign-in/" />)
         } />
-
-        <Route path='/sign-in/' element={
-          <>
-            <div className='app__sign-in-block'>
-              <p className='app__greeting-text'>Welcome to the ...</p>
-              <SignIn />
-            </div>
-          </>
-        }/>
-
-        <Route exact path='/my-profile/' element={
-          <>
-          <h1>Ну типо работает?</h1>
-          </>
-        }/>
+        <Route path='/sign-in/' element={<SignIn />} />
+        <Route exact path='/my-profile/' element={<PageOfUser />}/>
       </Routes>
     </main>
     </>
