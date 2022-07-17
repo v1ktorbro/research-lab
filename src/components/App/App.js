@@ -26,10 +26,10 @@ function App() {
       <BtnsContainer />
       <Routes>
         <Route path='/' element={ authState ? 
-            (<Navigate to="/my-profile/" />) : (<Navigate to="/sign-in/" />)
+            (<Navigate to="/my-profile/" replace />) : (<Navigate to="/sign-in/" replace />)
         } />
         <Route path='/sign-in/' element={<SignIn />} />
-        <Route exact path='/my-profile/' element={<PageOfUser />}/>
+        <Route path='/my-profile/' element={<PageOfUser />}/>
       </Routes>
     </main>
     </>
