@@ -1,4 +1,5 @@
-import { toggleAuthState } from '../../store/authReducer';
+/* eslint-disable no-unused-vars */
+import { setLoginDataUser } from '../../store/authReducer';
 import { useDispatch } from 'react-redux';
 import * as React from 'react';
 import Button from '@mui/material/Button';
@@ -12,8 +13,10 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { useNavigate } from 'react-router-dom';
 
 export default function SignIn() {
+  const navigate = useNavigate();
   const [isRememberUser, setIsRememberUser] = React.useState(false);
   const dispatch = useDispatch();
   const theme = createTheme({
@@ -34,8 +37,11 @@ export default function SignIn() {
     const data = new FormData(event.currentTarget);
     const  password = data.get('password');
     const  email = data.get('email');
-    if (email.length && password.length) dispatch(toggleAuthState({email: email, isRemember: isRememberUser}));
-    else alert('Необходимо заполнить все поля');
+    if (email.length && password.length) {
+      dispatch(setLoginDataUser({email: email, isAuth: true}));
+      isRememberUser && localStorage.setItem('loginDataUser', JSON.stringify({email: email, isAuth: true}));
+      navigate('/my-profile/');
+    } else alert('Необходимо заполнить все поля');
   };
 
   return (
