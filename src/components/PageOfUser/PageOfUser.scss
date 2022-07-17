@@ -1,0 +1,71 @@
+$cursorImageButton: url('../../images/pointer.svg'), pointer;
+$btnImageLogout: url('../../images/btn-logout.svg');
+$defaultAvatar: url('../../images/default_avatar.svg');
+$textColor: #0298A9;
+.page-of-user {
+  color: $textColor;
+}
+.page-of-user__greeting-text {
+  text-align: start;
+  margin: 0;
+  margin-top: 64px;
+  margin-bottom: 163px;
+  padding: 0;
+  font-size: 24px;
+  line-height: 33px;
+  padding-left: 24px;
+}
+
+.page-of-user__block-info {
+  position: relative;
+  display: flex;
+}
+
+.page-of-user__avatar {
+  position: relative;
+  background-image: $defaultAvatar;
+  width: 50px;
+  height: 50px;
+  &::before {
+    content: 'HOME';
+    color: #000;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    line-height: 24px;
+    left: 1px;
+    bottom: 1px;
+    width: calc(100% - 2px);
+    height: 15px;
+    background-color: #fff;
+    border-bottom-right-radius: 9px;
+    border-bottom-left-radius: 9px;
+  }
+}
+.page-of-user__email {
+  font-weight: 500;
+  font-size: 24px;
+  letter-spacing: 0.1px;
+  margin: 0;
+  margin-left: 24px;
+}
+.page-of-user__btn-logout {
+  cursor: $cursorImageButton;
+  font-family: 'Open Sans';
+  position: absolute;
+  left: 74px;
+  top: 50px;
+  background-color: transparent;
+  border: none;
+  color: $textColor;
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 300;
+  &::before {
+    content: $btnImageLogout;
+    margin-right: 4px;
+  }
+}
