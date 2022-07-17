@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { setLoginDataUser } from '../../store/authReducer';
 import { useDispatch } from 'react-redux';
 import * as React from 'react';
@@ -45,66 +44,71 @@ export default function SignIn() {
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" sx={{textAlign: 'start', marginLeft: '0px'}} maxWidth="xs">
-        <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
-          <Typography component="h1" variant="h5" sx={{alignSelf: 'flex-start'}}>
-            Sign in
-          </Typography>
-          <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Email"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Password"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <Grid container >
-              <Grid item xs>
-                <Link href="#" variant="body2" sx={{textDecoration: 'none', color: 'rgba(0, 0, 0, .7)'}}>
-                  Forgot password?
-                </Link>
-              </Grid>
-            </Grid>
-            <Grid container sx={{flexDirection: 'column'}}>
-              <Button
-                type="submit"
+    <div className='app__sign-in-block'>
+    <p className='app__greeting-text'>Welcome to the ...</p>
+      <ThemeProvider theme={theme}>
+        <Container component="main" sx={{textAlign: 'start', marginLeft: '0px'}} maxWidth="xs">
+          <CssBaseline />
+          <Box
+            sx={{
+              marginTop: 8,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+          >
+            <Typography component="h1" variant="h5" sx={{alignSelf: 'flex-start'}}>
+              Sign in
+            </Typography>
+            <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
+              <TextField
+                margin="normal"
+                required
                 fullWidth
-                variant="contained"
-                color='custom'
-                sx={{ mt: 3, mb: 2, width: '160px', color: '#fff' }}
-              >
-                Sign In
-              </Button>
-              <FormControlLabel
-                control={<Checkbox onChange={handleCheckboxRememberValue} value="remember" color="custom" />}
-                label="Remember me"
+                id="email"
+                label="Email"
+                name="email"
+                autoComplete="email"
+                autoFocus
               />
-            </Grid>
+              <TextField
+                margin="normal"
+                required
+                fullWidth
+                name="password"
+                label="Password"
+                type="password"
+                id="password"
+                autoComplete="current-password"
+              />
+              <Grid container >
+                <Grid item xs>
+                  <Link href="#" variant="body2" sx={{textDecoration: 'none', color: 'rgba(0, 0, 0, .7)'}}>
+                    Forgot password?
+                  </Link>
+                </Grid>
+              </Grid>
+              <Grid container sx={{flexDirection: 'column'}}>
+                <Button
+                  type="submit"
+                  fullWidth
+                  variant="contained"
+                  color='custom'
+                  sx={{ mt: 3, mb: 2, width: '160px', color: '#fff' }}
+                >
+                  Sign In
+                </Button>
+                <span className='sign-in__btn-remember'>
+                  <FormControlLabel style={{userSelect: 'none'}}
+                    control={<Checkbox onChange={handleCheckboxRememberValue} value="remember" color="custom" />}
+                    label="Remember me"
+                  />
+                </span>
+              </Grid>
+            </Box>
           </Box>
-        </Box>
-      </Container>
-    </ThemeProvider>
+        </Container>
+      </ThemeProvider>
+    </div>
   );
 }
