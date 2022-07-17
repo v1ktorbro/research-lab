@@ -1,18 +1,17 @@
 const defaultState = {
   isAuth: false,
-  emailCurrentUser: '',
-  isRemember: false,
+  email: '',
 };
 
-const TOGGLE_AUTH_STATE  = 'TOGGLE_AUTH_STATE';
+const SET_LOGIN_DATA_USER  = 'SET_LOGIN_DATA_USER';
 
 export const authReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case TOGGLE_AUTH_STATE:
-      return {...state, isAuth: !state.isAuth, emailCurrentUser: action.payload.email, isRemember: action.payload.isRemember};
+    case SET_LOGIN_DATA_USER:
+      return {...state, isAuth: action.payload.isAuth, email: action.payload.email};
     default:
       return state;
   }
 };
 
-export const toggleAuthState = (payload) => ({type: TOGGLE_AUTH_STATE, payload});
+export const setLoginDataUser = (payload) => ({type: SET_LOGIN_DATA_USER, payload});
