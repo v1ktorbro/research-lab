@@ -30,6 +30,7 @@ $cursorImageButton: url('../../images/pointer.svg'), pointer;
     grid-row-end: 2;
     margin-top: 191px;
     margin-left: 120px;
+    background-color: #414549;
   }
   &_user {
     grid-column-start: 2;
@@ -38,7 +39,7 @@ $cursorImageButton: url('../../images/pointer.svg'), pointer;
     grid-row-end: -2;
     margin-top: -235px;
     margin-left: -60px;
-    
+    background-color: #0298A9;
   }
   &_market {
     grid-column-start: -1;
@@ -47,6 +48,7 @@ $cursorImageButton: url('../../images/pointer.svg'), pointer;
     grid-row-end: 2;
     margin-left: -180px;
     margin-top: 70px;
+    background-color: #86BD24;
   }
 }
 .big-button-text {
