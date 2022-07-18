@@ -1,9 +1,8 @@
 import './BigButton.scss';
 import React from 'react';
 import { useSelector } from 'react-redux';
-import PropTypes from 'prop-types';
 
-export default function BigButton({nameBtn, hexColor}) {
+export default function BigButton({nameBtn}) {
   const authState = useSelector((state) => state.auth.isAuth);
 
   const handlerBtnClick = (evt) => {
@@ -12,13 +11,8 @@ export default function BigButton({nameBtn, hexColor}) {
   };
 
   return (
-    <button onClick={handlerBtnClick} disabled={authState ? false : true} value={nameBtn} id={nameBtn} className={`big-button big-button_${nameBtn}`} style={{backgroundColor: hexColor}}>
+    <button onClick={handlerBtnClick} disabled={authState} value={nameBtn} id={nameBtn} className={`big-button big-button_${nameBtn}`}>
       <span className={`big-button-text big-button-text_${nameBtn}`} >{nameBtn.toUpperCase()}</span>
     </button>
   );
 }
-
-BigButton.propTypes = {
-  nameBtn: PropTypes.string,
-  hexColor: PropTypes.string,
-};
