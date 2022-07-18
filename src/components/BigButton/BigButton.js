@@ -11,7 +11,7 @@ export default function BigButton({nameBtn}) {
   };
 
   return (
-    <button onClick={handlerBtnClick} disabled={authState} value={nameBtn} id={nameBtn} className={`big-button big-button_${nameBtn}`}>
+    <button onClick={handlerBtnClick} disabled={authState ? false : true} value={nameBtn} id={nameBtn} className={`big-button big-button_${nameBtn}`}>
       <span className={`big-button-text big-button-text_${nameBtn}`} >{nameBtn.toUpperCase()}</span>
     </button>
   );
