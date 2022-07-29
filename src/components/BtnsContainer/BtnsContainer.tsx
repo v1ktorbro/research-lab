@@ -1,13 +1,12 @@
 import './BtnsContainer.scss';
-import React from 'react';
+import { bigButtons } from 'src/data/bigButtons';
 import BigButton from '../BigButton/BigButton';
 
 export default function BtnsContainer() {
+
   return (
     <article className='btns-container'>
-      <BigButton nameBtn='projects' />
-      <BigButton nameBtn='market' />
-      <BigButton nameBtn='user' />
+      {bigButtons.map((btnData, index) => <BigButton dataBigButton={btnData} key={index} />)}
     </article>
   );
 }
