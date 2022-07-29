@@ -4,6 +4,18 @@
     "outDir": "./build",
     "jsx": "react-jsx",
     "target": "es2022",
+    // Запрещает класть в переменную null без явного объявления
+    "strictNullChecks": true,
+    // Делает вызовы методов bind, call, apply строго типизированными
+    "strictBindCallApply": true,
+    // Делает более строгими типы функций
+    "strictFunctionTypes": true,
+    // Запрещает объявление непустого поля класса без инициализации
+    "strictPropertyInitialization": true,
+    "baseUrl": ".",
+    "paths": {
+      "react-redux": ["node_modules/react-redux/dist/react-redux.js"],
+    },
   },
   // Указываем, какие файлы следует компилировать
   "include": ["src/**/*"],
