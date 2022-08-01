@@ -12,10 +12,11 @@
     "strictFunctionTypes": true,
     // Запрещает объявление непустого поля класса без инициализации
     "strictPropertyInitialization": true,
-    "baseUrl": ".",
-    "paths": {
-      "react-redux": ["node_modules/react-redux/dist/react-redux.js"],
-    },
+    //  для импорта сторонних библиотек без указания абсолютного пути
+    "moduleResolution": "node",
+    "allowJs": true,
+    //  для работы со стейтом redux
+    "useUnknownInCatchVariables": false,
   },
   // Указываем, какие файлы следует компилировать
   "include": ["src/**/*"],
